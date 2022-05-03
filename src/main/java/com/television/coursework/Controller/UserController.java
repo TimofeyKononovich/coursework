@@ -15,7 +15,6 @@ public class UserController {
     //TODO: Use Hibernate to change the state of user's synchronization
     @GetMapping("/synchronization_control/{userid}/{state}")
    public ResponseEntity<String> EnableSynchronize(@PathVariable Integer userid, @PathVariable Boolean state){
-        if(InputDataValidator.validate(Integer.class, userid) && InputDataValidator.validate(Boolean.class,state) )//&& UserService.findById(userid))
         //Extract user synchro info
         if(state == user.isState()){
             return new ResponseEntity<String>("Can't change new state on previous state with the same params", HttpStatus.BAD_REQUEST);
