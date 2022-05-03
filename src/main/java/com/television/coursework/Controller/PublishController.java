@@ -1,13 +1,7 @@
-package com.television.coursework.controller;
+package com.television.coursework.Controller;
 
 
-import org.springframework.http.*;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.awt.*;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 @RestController
 public class PublishController {

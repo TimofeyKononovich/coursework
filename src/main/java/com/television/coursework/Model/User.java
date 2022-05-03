@@ -1,4 +1,4 @@
-package com.television.coursework.model;
+package com.television.coursework.Model;
 
 public class User {
 

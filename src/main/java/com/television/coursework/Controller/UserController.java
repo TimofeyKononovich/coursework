@@ -1,8 +1,7 @@
-package com.television.coursework.controller;
+package com.television.coursework.Controller;
 
-import com.television.coursework.model.User;
-import org.springframework.http.CacheControl;
-import org.springframework.http.HttpHeaders;
+import com.television.coursework.Model.User;
+import com.television.coursework.Validator.InputDataValidator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +15,7 @@ public class UserController {
     //TODO: Use Hibernate to change the state of user's synchronization
     @GetMapping("/synchronization_control/{userid}/{state}")
    public ResponseEntity<String> EnableSynchronize(@PathVariable Integer userid, @PathVariable Boolean state){
+        if(InputDataValidator.validate(Integer.class, userid) && InputDataValidator.validate(Boolean.class,state) )//&& UserService.findById(userid))
         //Extract user synchro info
         if(state == user.isState()){
             return new ResponseEntity<String>("Can't change new state on previous state with the same params", HttpStatus.BAD_REQUEST);
