@@ -51,5 +51,11 @@ public class UserController {
         return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
+    @GetMapping("/new_user/{location}")
+    public ResponseEntity<String> CreateUser(@PathVariable String location){
+        User user=new User(2,true,location);
+        String response = "New User created   Id: "+user.getID()+", State: "+user.isState()+", New location: "+ location;
+        return new ResponseEntity<>(response,HttpStatus.OK);
+    }
 
 }
