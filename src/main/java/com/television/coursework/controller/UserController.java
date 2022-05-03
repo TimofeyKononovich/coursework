@@ -58,4 +58,10 @@ public class UserController {
         return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
+    @GetMapping("/delete_user/{userid}")
+    public ResponseEntity<String> DeleteUser(@PathVariable Integer userid){
+        //Delete from DB with hibernate
+        String response = "User deleted   Id: "+user.getID()+", State: "+user.isState()+", New location: "+ user.getLocation();
+        return new ResponseEntity<>(response,HttpStatus.OK);
+    }
 }
